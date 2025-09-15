@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Marakaba</title>
+  <title>Marakaba App</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="flex flex-col min-h-screen bg-gray-50">
@@ -22,7 +22,7 @@
     <div class="grid md:grid-cols-3 gap-8">
           
       <!-- Market -->
-      <a href="market.html" class="block bg-white rounded-2xl shadow-lg p-6 text-center hover:scale-105 transform transition">
+      <a href="market/index.html" class="block bg-white rounded-2xl shadow-lg p-6 text-center hover:scale-105 transform transition">
         <div class="flex justify-center mb-4">
           <svg class="w-14 h-14 text-blue-600" fill="none" stroke="currentColor" stroke-width="2"
                viewBox="0 0 24 24">
@@ -34,7 +34,7 @@
       </a>
 
       <!-- Order -->
-      <a href="order.html" class="block bg-white rounded-2xl shadow-lg p-6 text-center hover:scale-105 transform transition">
+      <a href="order/index.html" class="block bg-white rounded-2xl shadow-lg p-6 text-center hover:scale-105 transform transition">
         <div class="flex justify-center mb-4">
           <svg class="w-14 h-14 text-green-600" fill="none" stroke="currentColor" stroke-width="2"
                viewBox="0 0 24 24">
@@ -46,7 +46,7 @@
       </a>
 
       <!-- Ride -->
-      <a href="ride.html" class="block bg-white rounded-2xl shadow-lg p-6 text-center hover:scale-105 transform transition">
+      <a href="ride/index.html" class="block bg-white rounded-2xl shadow-lg p-6 text-center hover:scale-105 transform transition">
         <div class="flex justify-center mb-4">
           <svg class="w-14 h-14 text-purple-600" fill="none" stroke="currentColor" stroke-width="2"
                viewBox="0 0 24 24">
@@ -100,7 +100,24 @@
   </nav>
 
   <!-- Reusable Nav Script -->
-  <script src="nav.js"></script>
+  <script>
+  // nav.js
+document.addEventListener('DOMContentLoaded', () => {
+  const links = document.querySelectorAll('.nav-link');
+  const currentPage = location.pathname.split('/').pop() || 'index.html'; // default to home if blank
+
+  links.forEach(link => {
+    const linkPage = link.getAttribute('href');
+    if(linkPage === currentPage) {
+      link.classList.add('text-blue-600');
+      link.classList.remove('text-gray-600', 'hover:text-blue-600');
+    } else {
+      link.classList.remove('text-blue-600');
+      link.classList.add('text-gray-600', 'hover:text-blue-600');
+    }
+  });
+});
+  </script>
 
 </body>
 </html>
